@@ -160,7 +160,7 @@ function resetScore() {
 
     gamestatus.innerHTML = '';
     robotStatus.innerHTML = '';
-    resultat.innerHTML= '';
+    resultat.innerHTML = '';
 
     scorePlayerElement.innerText = scorePlayer;
     scoreRobotElement.innerText = scoreRobot;
