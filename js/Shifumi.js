@@ -1,14 +1,18 @@
 let boutonPierre = document.getElementById('pierre');
 let boutonFeuilles = document.getElementById('feuilles');
 let boutonCiseaux = document.getElementById('ciseaux');
+let boutonPuits = document.getElementById('puits');
+
 let resultat = document.getElementById('resultat');
 
-let tabElements = ['Rock', 'Paper', 'Scissors'];
+let tabElements = ['Rock', 'Paper', 'Scissors','Puits'];
 
 let scorePlayer = 0;
 let scoreRobot = 0;
 
 let gameHistory = [];
+
+let consecutiveLosses = 0;
 
 
 boutonPierre.addEventListener('click', () => {
@@ -26,6 +30,14 @@ boutonCiseaux.addEventListener('click', () => {
     updateScore();
 });
 
+boutonPuits.addEventListener('click', () => {
+    displayGame(tabElements[3], robotChoice());
+    updateScore();
+    consecutiveLosses = 0; 
+    boutonPuits.style.display = 'none';
+});
+
+
 function getRandomInt(max) {
     return Math.floor(Math.random() * Math.floor(max));
 }
@@ -34,6 +46,7 @@ function robotChoice() {
     let randomPick = tabElements[getRandomInt(3)];
     return randomPick;
 }
+
 
 function displayGame(playerChoice, robotChoice) {
     // Display player choice
@@ -48,13 +61,30 @@ function displayGame(playerChoice, robotChoice) {
     let result = document.getElementById('resultat');
     result.innerHTML = gameIssue(playerChoice, robotChoice);
 
-    // History
+
     let resultText = gameIssue(playerChoice, robotChoice);
+
+    // Cheat code
+    if (resultText === "Lose") {
+        consecutiveLosses++;
+    } else {
+        consecutiveLosses = 0; 
+    }
+
+    if (consecutiveLosses >= 2) {
+        document.getElementById('puits').style.display = 'block';
+    } else {
+        document.getElementById('puits').style.display = 'none';
+    }
+
+
+    // History
     gameHistory.push({
         playerChoice: playerChoice,
         robotChoice: robotChoice,
         result: resultText
     });
+    displayGameHistory();
 }
 
 function gameIssue(playerChoice, robotChoice) {
@@ -62,6 +92,7 @@ function gameIssue(playerChoice, robotChoice) {
     if (playerChoice == tabElements[1] && robotChoice == tabElements[0]) return "Win";
     if (playerChoice == tabElements[2] && robotChoice == tabElements[1]) return "Win";
     if (playerChoice == tabElements[0] && robotChoice == tabElements[2]) return "Win";
+    if(playerChoice == tabElements[3]) return "Win";
     else return "Lose";
 }
 
