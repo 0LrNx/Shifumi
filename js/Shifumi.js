@@ -5,7 +5,7 @@ let boutonPuits = document.getElementById('puits');
 
 let resultat = document.getElementById('resultat');
 
-let tabElements = ['Rock', 'Paper', 'Scissors','Puits'];
+let tabElements = ['Rock', 'Paper', 'Scissors', 'Puits'];
 
 let scorePlayer = 0;
 let scoreRobot = 0;
@@ -33,7 +33,7 @@ boutonCiseaux.addEventListener('click', () => {
 boutonPuits.addEventListener('click', () => {
     displayGame(tabElements[3], robotChoice());
     updateScore();
-    consecutiveLosses = 0; 
+    consecutiveLosses = 0;
     boutonPuits.style.display = 'none';
 });
 
@@ -68,7 +68,7 @@ function displayGame(playerChoice, robotChoice) {
     if (resultText === "Lose") {
         consecutiveLosses++;
     } else {
-        consecutiveLosses = 0; 
+        consecutiveLosses = 0;
     }
 
     if (consecutiveLosses >= 2) {
@@ -92,7 +92,7 @@ function gameIssue(playerChoice, robotChoice) {
     if (playerChoice == tabElements[1] && robotChoice == tabElements[0]) return "Win";
     if (playerChoice == tabElements[2] && robotChoice == tabElements[1]) return "Win";
     if (playerChoice == tabElements[0] && robotChoice == tabElements[2]) return "Win";
-    if(playerChoice == tabElements[3]) return "Win";
+    if (playerChoice == tabElements[3]) return "Win";
     else return "Lose";
 }
 
@@ -117,7 +117,7 @@ function updateScore() {
 
 function displayGameHistory() {
     let historyTable = document.getElementById('game-history').querySelector('tbody');
-    historyTable.innerHTML = ''; // Efface le contenu précédent
+    historyTable.innerHTML = '';
 
     gameHistory.forEach((game, index) => {
         let row = historyTable.insertRow();
@@ -136,9 +136,34 @@ function displayGameHistory() {
         } else {
             emoji = '🏳️';
         }
-
         resultCell.textContent = emoji;
     });
+}
+
+// BTN RESET SCORES
+let btnReset = document.getElementById('btn-reset');
+
+
+btnReset.addEventListener('click', resetScore);
+
+function resetScore() {
+    scorePlayer = 0;
+    scoreRobot = 0;
+    gameHistory = [];
+    consecutiveLosses = 0;
+    displayGameHistory();
+
+    let scorePlayerElement = document.getElementById('score-player');
+    let scoreRobotElement = document.getElementById('score-robot');
+    let gamestatus = document.getElementById('joueur');
+    let robotStatus = document.getElementById('robot');
+
+    gamestatus.innerHTML = '';
+    robotStatus.innerHTML = '';
+    resultat.innerHTML= '';
+
+    scorePlayerElement.innerText = scorePlayer;
+    scoreRobotElement.innerText = scoreRobot;
 }
 
 
