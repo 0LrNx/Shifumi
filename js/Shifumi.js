@@ -3,50 +3,69 @@ let boutonFeuilles = document.getElementById('feuilles');
 let boutonCiseaux = document.getElementById('ciseaux');
 let resultat = document.getElementById('resultat');
 
-let joueurSpan = document.getElementById('joueur');
-let robotSpan = document.getElementById('robot');
+let tabElements = ['Rock', 'Paper', 'Scissors'];
 
-let tabElements = ['Pierre', 'Feuilles', 'Ciseaux'];
-let robotChoice = tabElements[getRandomInt(3)];
+let scorePlayer = 0;
+let scoreRobot = 0;
 
 boutonPierre.addEventListener('click', () => {
-    joueurSpan.textContent = 'Joueur : Pierre';
-    robot.textContent = 'Robot : ' + robotChoice;
-    getWinner();
+    displayGame(tabElements[0], robotChoice());
+    updateScore();
 });
 
 boutonFeuilles.addEventListener('click', () => {
-    joueurSpan.textContent = 'Joueur : Feuilles';
-    robot.textContent = 'Robot : ' + robotChoice;
-    getWinner();
+    displayGame(tabElements[1], robotChoice());
+    updateScore();
 });
 
 boutonCiseaux.addEventListener('click', () => {
-    joueurSpan.textContent = 'Joueur : Ciseaux';
-    robot.textContent = 'Robot : ' + robotChoice;
-    getWinner();
+    displayGame(tabElements[2], robotChoice());
+    updateScore();
 });
-
 
 function getRandomInt(max) {
     return Math.floor(Math.random() * Math.floor(max));
 }
 
+function robotChoice() {
+    let randomPick = tabElements[getRandomInt(3)];
+    return randomPick;
+}
 
-function getWinner() {
-    if (joueurSpan.textContent === 'Joueur : Pierre' && robotSpan.textContent === 'Robot : Ciseaux') {
-        return resultat.textContent = 'Résultat : Gagné';
-    } else if (joueurSpan.textContent === 'Joueur : Feuilles' && robotSpan.textContent === 'Robot : Pierre') {
-        return resultat.textContent = 'Resultat : Gagné';
-    } else if (joueurSpan.textContent === 'Joueur : Ciseaux' && robotSpan.textContent === 'Robot : Feuilles') {
-        return resultat.textContent = 'Résultat : Gagné';
-    } else if (joueurSpan.textContent === 'Joueur : Pierre' && robotSpan.textContent === 'Robot : Feuilles') {
-        return resultat.textContent = 'Résultat : Perdu';
-    } else if (joueurSpan.textContent === 'Joueur : Feuilles' && robotSpan.textContent === 'Robot : Ciseaux') {
-        return resultat.textContent = 'Résultat : Perdu';
-    } else if (joueurSpan.textContent === 'Joueur : Ciseaux' && robotSpan.textContent === 'Robot : Pierre') {
-        return resultat.textContent = 'Résultat : Perdu';
-    } else {
-        return resultat.textContent = 'Résultat : Egalité';
+function displayGame(playerChoice, robotChoice) {
+    // Display player choice
+    let gamestatus = document.getElementById('joueur');
+    gamestatus.innerHTML = playerChoice;
+
+    // Display robot choice
+    let robotStatus = document.getElementById('robot');
+    robotStatus.innerHTML = robotChoice;
+
+    // Display result
+    let result = document.getElementById('resultat');
+    result.innerHTML = gameIssue(playerChoice, robotChoice);
+}
+
+function gameIssue(playerChoice, robotChoice) {
+    if (playerChoice == robotChoice) return "Tie";
+    if (playerChoice == tabElements[1] && robotChoice == tabElements[0]) return "Win";
+    if (playerChoice == tabElements[2] && robotChoice == tabElements[1]) return "Win";
+    if (playerChoice == tabElements[0] && robotChoice == tabElements[2]) return "Win";
+    else return "Lose";
+}
+
+function updateScore() {
+    let scorePlayerElement = document.getElementById('score-player');
+    let scoreRobotElement = document.getElementById('score-robot');
+    
+    let resultText = document.getElementById('resultat').innerText;
+    
+    if (resultText === "Win") {
+        scorePlayer++;
+    } else if (resultText === "Lose") {
+        scoreRobot++;
     }
+
+    scorePlayerElement.innerText = scorePlayer;
+    scoreRobotElement.innerText = scoreRobot;
 }

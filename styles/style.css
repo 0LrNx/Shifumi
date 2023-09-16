@@ -24,11 +24,21 @@
     justify-content: center;
 }
 
-.resultat {
+.container {
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    width: 20%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.game-container {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    margin-top: 30px;
-    color: white;
+}
+
+.score-container {
+    display: flex;
+    flex-direction: column;
 }
