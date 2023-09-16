@@ -8,6 +8,9 @@ let tabElements = ['Rock', 'Paper', 'Scissors'];
 let scorePlayer = 0;
 let scoreRobot = 0;
 
+let gameHistory = [];
+
+
 boutonPierre.addEventListener('click', () => {
     displayGame(tabElements[0], robotChoice());
     updateScore();
@@ -44,6 +47,14 @@ function displayGame(playerChoice, robotChoice) {
     // Display result
     let result = document.getElementById('resultat');
     result.innerHTML = gameIssue(playerChoice, robotChoice);
+
+    // History
+    let resultText = gameIssue(playerChoice, robotChoice);
+    gameHistory.push({
+        playerChoice: playerChoice,
+        robotChoice: robotChoice,
+        result: resultText
+    });
 }
 
 function gameIssue(playerChoice, robotChoice) {
@@ -57,15 +68,46 @@ function gameIssue(playerChoice, robotChoice) {
 function updateScore() {
     let scorePlayerElement = document.getElementById('score-player');
     let scoreRobotElement = document.getElementById('score-robot');
-    
+
     let resultText = document.getElementById('resultat').innerText;
-    
+
     if (resultText === "Win") {
         scorePlayer++;
     } else if (resultText === "Lose") {
         scoreRobot++;
     }
-
     scorePlayerElement.innerText = scorePlayer;
     scoreRobotElement.innerText = scoreRobot;
+
+    //Historique 
+    displayGameHistory();
 }
+
+
+function displayGameHistory() {
+    let historyTable = document.getElementById('game-history').querySelector('tbody');
+    historyTable.innerHTML = ''; // Efface le contenu précédent
+
+    gameHistory.forEach((game, index) => {
+        let row = historyTable.insertRow();
+        let playerCell = row.insertCell(0);
+        let resultCell = row.insertCell(1);
+        let robotCell = row.insertCell(2);
+
+        playerCell.textContent = game.playerChoice;
+        robotCell.textContent = game.robotChoice;
+
+        let emoji = '';
+        if (game.result === 'Win') {
+            emoji = '✅';
+        } else if (game.result === 'Lose') {
+            emoji = '❌';
+        } else {
+            emoji = '🏳️';
+        }
+
+        resultCell.textContent = emoji;
+    });
+}
+
+

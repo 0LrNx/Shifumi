@@ -13,12 +13,13 @@
 }
 
 .button {
+    cursor: pointer;
     border: none;
     font-size: 30px;
     margin-top: 30px;
 }
 
-.container-button  {
+.container-button {
     display: flex;
     gap: 20px;
     justify-content: center;
@@ -41,4 +42,41 @@
 .score-container {
     display: flex;
     flex-direction: column;
+}
+
+.separation {
+    margin-top: 20px;
+    width: 30%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* ===== HISTORY ===== */
+
+.history-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.title-history {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+#game-history {
+    width: 15%;
+    border-collapse: collapse;
+}
+
+#game-history th,
+#game-history td {
+    padding: 8px;
+    text-align: center;
+}
+
+#game-history th {
+    background-color: #f2f2f2;
 }
