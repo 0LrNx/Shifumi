@@ -1,46 +1,38 @@
-# Shifumi - Pierre-papier-ciseaux
+# Shifumi - Rock, Paper, Scissors
 
 <div align="center">
   <img src="./assets/img/icon.png" alt="Shifumi Logo" width="100">
 </div>
 
-## À propos
+## About
 
-Shifumi est une simple application web du jeu Pierre-papier-ciseaux (Rock-paper-scissors) avec une petite touche amusante. Choisissez parmi les options traditionnelles et découvrez les résultats. De plus, un élément secret, "Puits", peut être débloqué après quelques pertes consécutives !
+Shifumi is a simple web application of the Rock, Paper, Scissors game with a fun twist. Choose from traditional options and discover the outcomes. Plus, there's a secret element, "The Well," that can be unlocked after consecutive losses!
 
-## Comment jouer
+## How to Play
 
-- Cliquez sur les emojis pour choisir votre mouvement :
-  - 👊 pour Pierre
-  - ✋ pour Feuilles
-  - ✌ pour Ciseaux
-- Essayez de battre le robot en sélectionnant un mouvement qui le vaincra.
-- Surveillez votre score global pour voir qui gagne.
+- Click on emojis to choose your move:
+  - 👊 for Rock
+  - ✋ for Paper
+  - ✌ for Scissors
+- Try to beat the robot by selecting a move that will defeat it.
+- Keep an eye on the overall score to see who's winning.
 
-## Fonctionnalités
+## Features
 
-- Interface utilisateur conviviale avec des emojis amusants.
-- Suivi du score global pour les joueurs et le robot.
-- Historique des parties avec des résultats clairs.
-- Possibilité de débloquer le "Puits" après plusieurs pertes consécutives.
+- User-friendly interface with fun emojis.
+- Tracking of the global score for players and the robot.
+- Game history with clear results.
+- Ability to unlock "The Well" after multiple consecutive losses.
 
-## Comment exécuter le jeu
+## How to Run the Game
 
-1. Clonez ce dépôt GitHub sur votre machine locale.
-2. Ouvrez le fichier `index.html` dans votre navigateur web préféré.
+1. Clone this GitHub repository to your local machine.
+2. Open the `index.html` file in your preferred web browser.
 
-## Captures d'écran
+## Screenshots
 
-![Capture d'écran du jeu](./screenshot.png)
-
-## Contribuer
-
-Les contributions sont les bienvenues ! Si vous avez des idées d'améliorations, des correctifs de bogues ou des suggestions, n'hésitez pas à les partager en ouvrant une "issue" ou une "pull request".
-
-## Licence
-
-Ce projet est sous licence [MIT](./LICENSE).
+![Game screenshot](./assets/img/screenshot.png)
 
 ---
 
-Créé avec ❤️ par [Votre Nom] - [Votre Site Web] - [Votre Adresse Email]
+Created with ❤️ by [FI$$](https://github.com/YourGitHubUsername)
