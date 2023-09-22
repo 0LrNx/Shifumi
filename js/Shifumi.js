@@ -117,9 +117,10 @@ function updateScore() {
 
 function displayGameHistory() {
     let historyTable = document.getElementById('game-history').querySelector('tbody');
+    let startIndex = Math.max(0, gameHistory.length - 5);
     historyTable.innerHTML = '';
 
-    gameHistory.forEach((game, index) => {
+    gameHistory.slice(startIndex).reverse().forEach((game, index) => {
         let row = historyTable.insertRow();
         let playerCell = row.insertCell(0);
         let resultCell = row.insertCell(1);
@@ -139,6 +140,8 @@ function displayGameHistory() {
         resultCell.textContent = emoji;
     });
 }
+
+
 
 // BTN RESET SCORES
 let btnReset = document.getElementById('btn-reset');
