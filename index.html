@@ -7,12 +7,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Shifumi</title>
     <link rel="stylesheet" href="./styles/style.css">
+    <link rel="shortcut icon" href="./assets/img/icon.png">
+
+    <!-- FONT -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&family=Roboto:wght@500&display=swap" rel="stylesheet">
 </head>
 
 <body>
     <main>
 
-        <h1 class="title">SHIFUMI</h1>
+        <h1 class="title">
+            <span class="space">S</span>
+            <span class="space">H</span>
+            <span class="space">I</span>
+            <span class="space">F</span>
+            <span class="space">U</span>
+            <span class="space">M</span>
+            <span class="space">I</span>
+        </h1>
 
         <div class="box">
             <div class="container-button">
@@ -25,13 +39,14 @@
 
             <div class="container">
                 <div class="game-container">
+                    <p class="title-menu">Current game</p>
                     <span>Player : <span id="joueur"></span></span>
                     <span>Robot : <span id="robot"></span></span>
                     <span>Result : <span id="resultat"></span></span>
                 </div>
 
                 <div class="score-container">
-                    <span>Score</span>
+                    <p class="title-menu">Global score</p>
                     <span>Player : <span id="score-player"></span></span>
                     <span>Robot : <span id="score-robot"></span></span>
                     <button id="btn-reset">Reset scores</button>
