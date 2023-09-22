@@ -31,7 +31,9 @@ Shifumi is a simple web application of the Rock, Paper, Scissors game with a fun
 
 ## Screenshots
 
+<div align="center">
 ![Game screenshot](./assets/img/screenshot.png)
+</div>
 
 ---
 
