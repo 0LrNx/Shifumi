@@ -37,4 +37,4 @@ Shifumi is a simple web application of the Rock, Paper, Scissors game with a fun
 
 ---
 
-Created with ❤️ by [FI$$](https://github.com/YourGitHubUsername)
+Created with ❤️ by [FI$$](https://github.com/0LrNx)
